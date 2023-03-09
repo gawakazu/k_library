@@ -1,0 +1,7 @@
+Django~=4.1.7
+django-import_export~=3.1.0
+django-pure-pagination
+jaconv~=0.3.4
+mecab-python3~=1.0.6
+pillow~=9.4.0
+mojimoji~=0.0.12
