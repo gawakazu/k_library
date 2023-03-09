@@ -12,3 +12,4 @@ django-environ
 gunicorn
 psycopg2-binary
 whitenoise
+pip==20.1.1
