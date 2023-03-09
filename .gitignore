@@ -1,0 +1,7 @@
+myvenv
+db.sqlit3
+.vscode
+__pycache__
+*.pyc
+.DS_Store
+.env
