@@ -9,7 +9,7 @@ databases:
 
 services:
   - type: web
-    name: k_librarygit
+    name: k_library
     env: python
     region: singapore
     plan: free
