@@ -9,11 +9,11 @@ databases:
 
 services:
   - type: web
-    name: k_library
+    name: k_librarygit
     env: python
     region: singapore
     plan: free
-    branch: main
+    branch: master
     healthCheckPath: /
     buildCommand: "./build.sh"
     startCommand: "gunicorn mysite.wsgi:application"
