@@ -5,6 +5,7 @@ from .views import MainView,ResultView,ReservationView,InformationView,\
     LoginView,LogoutView,RentView,ReservingView,CommentView,CreateView,DeleteView,HistoryView,UpdateView
 
 urlpatterns = [
+    path("",MainView.as_view(),name='main'),
     path('main/',MainView.as_view(),name='main'),
     path('result/<str:kensaku><int:index>/',ResultView.as_view(),name='result'),
     path('result/<str:kensaku>/',ResultView.as_view(),name='result'),
