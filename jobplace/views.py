@@ -48,7 +48,7 @@ class ResultView(PaginationMixin,TemplateView):
         # MeCabによる形態素解析-----------------------------------------------------------
         key_word = key_word.replace("","") # 半角ｽﾍﾟｰｽ削除
         def mecab_list(key_word):
-            tagger = MeCab.Tagger("ipadic")
+            tagger = MeCab.Tagger()
             #tagger = MeCab.Tagger("-Ochasen")
             tagger.parse('')
             node = tagger.parseToNode(key_word)
