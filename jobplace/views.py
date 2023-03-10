@@ -45,29 +45,18 @@ class ResultView(PaginationMixin,TemplateView):
         all_text = self.kwargs['kensaku'][:-1] # ﾊﾟｲｿﾝ|5|21|19|<Page 1 of 2>4　(?を除去)
         all_text_member =  all_text.split('|') # ['ﾊﾟｲｿﾝ', '5', '21', '19', '<Page 1 of 2>4']
         key_word = all_text_member[0]          # ﾊﾟｲｿﾝ
+        
         # MeCabによる形態素解析-----------------------------------------------------------
         key_word = key_word.replace("","") # 半角ｽﾍﾟｰｽ削除
-        def mecab_list(key_word):
-            tagger = MeCab.Tagger()
-            #tagger = MeCab.Tagger("-Ochasen")
-            tagger.parse('')
-            node = tagger.parseToNode(key_word)
-            word_class = []
-            while node:
-                word = node.surface
-                wclass = node.feature.split(',')
-                if wclass[0] != u'BOS/EOS':
-                    if wclass[6] == None:
-                        word_class.append((word,wclass[0],wclass[1],wclass[2],""))
-                    else:
-                        word_class.append((word,wclass[0],wclass[1],wclass[2],wclass[6]))
-                node = node.next
-            word_class2 = []
-            # MeCabで助詞を除いたキーワードを作成。(主に名詞、動詞)
-            word_class2 = [i[0] for i in word_class if '助詞' not in i[1]]
-            return word_class2
-        #---------------------------------------------------------------------------------
-        keyword = mecab_list(key_word)
+
+        mecab = MeCab.Tagger("unidic")
+        word_list = mecab.parse(key_word).split("\n")
+        keyword = []
+        for i in word_list:
+            if ("助詞" not in i)and("EOS" not in i)and("記号" not in i):
+                keyword.append(i.split('\t')[0])
+        #--------------------------------------------------------------------------------
+
         # MeCabの形態素解析の結果を、「ひらがな ⇒ カタカナ ⇒ 半角(ｶﾀｶﾅ)」に変換。 ※BookModelのｷｰﾜｰﾄﾞ(book3)を半角の英数、ｶﾅとする。
         keyword_list = []
         for i in keyword:        
