@@ -26,7 +26,7 @@ class BookModel(models.Model):
     book2 = models.CharField(max_length=100)
     book3 = models.CharField(max_length=100)
     number = models.CharField(max_length=100)
-    images = models.ImageField(upload_to='')    
+    images = models.ImageField(upload_to='images/')    
     year = models.CharField(max_length=100)
     author = models.ForeignKey(AuthorModel,on_delete=models.CASCADE)
     library = models.ForeignKey(LibraryModel,on_delete=models.CASCADE)
