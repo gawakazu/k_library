@@ -106,7 +106,8 @@
                             {% if forloop.counter == 1 %}
                                 <p></p>
                             {% elif forloop.counter == 2 %}
-                                <td><img class="stretched-link" src={{ j.url }} alt="" style="width:60px;height: 80px;margin:0px 10px 0px 10px;"></td>
+                                <td><img class="stretched-link" src={{ j }} alt="" style="width:60px;height: 80px;margin:0px 10px 0px 10px;"></td>
+                                <!--<td><img class="stretched-link" src={{ j.url }} alt="" style="width:60px;height: 80px;margin:0px 10px 0px 10px;"></td>-->
                             {% else %}
                                 <td class="td2">{{ j }}</td>
 
