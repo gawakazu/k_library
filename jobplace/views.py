@@ -72,6 +72,7 @@ class ResultView(PaginationMixin,TemplateView):
                 result = result.filter(book3__icontains=keyword_list[i])
             else:
                 result = result.filter(book3__icontains=keyword_list[i])
+        #print("---result---",result,type(result))
         # ソートの種類を取得。
         sort_order = int(all_text_member[-1][-1]) #['ﾊﾟｲｿﾝ', '5', '21', '19', '<Page 1 of 2>4'] ⇒ 4
         # 現在のページを取得。
@@ -172,14 +173,14 @@ class ReservationView(LoginRequiredMixin,TemplateView):
         jobs,reserved_list,sort_order,borrow_list,book_list = paginator.pagination(all_text,result,page,sort_order,user)
         #-----------------------------------------------------
         try:
-            all_text_member_int = [int(i) for i in all_text_member[1:-1]] #['ﾊﾟｲｿﾝ|5|21|19|4|1|2', '5', '21', '<Page 1 of 2>2'] --> [5,21]            
+            all_text_member_int = [int(i) for i in all_text_member[1:-1] if i.isdigit()] #['ﾊﾟｲｿﾝ|5|21|19|4|1|2', '5', '21', '<Page 1 of 2>2'] --> [5,21]           
             for i in all_text_member_int:
                 if i in num:
                     num.remove(i)
                 else:
                     num.append(i)
         except:
-            print('ng')
+            print('----ng')
         if '%' not in all_text:
             delete_book = []
             for i in borrow_list:
