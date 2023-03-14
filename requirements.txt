@@ -13,4 +13,4 @@ gunicorn
 psycopg2-binary
 whitenoise
 unidic-lite
-django-axes
+
