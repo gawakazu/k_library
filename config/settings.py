@@ -35,9 +35,6 @@ ALLOWED_HOSTS = [
     'onrender.com',
     'render.com',
     'www.render.com',
-    'example.com',
-    'www.example.com',
-    '127.0.0.1',
     ]
     
 
