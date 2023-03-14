@@ -28,9 +28,10 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = 'django-insecure-iqu%(1-cftd@f@0pu^(&40nt=6n=tgex6maf1x^#5_q%*tkg(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False #True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['render.com','www.render.com','127.0.0.1']
+    
 
 
 # Application definition
