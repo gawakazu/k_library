@@ -31,9 +31,8 @@ SECRET_KEY = 'django-insecure-iqu%(1-cftd@f@0pu^(&40nt=6n=tgex6maf1x^#5_q%*tkg(b
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*'
-    #'k-library.onrender.com',
-    #'127.0.0.1',
+    'k-library.onrender.com',
+    '127.0.0.1',
     ]
     
 
