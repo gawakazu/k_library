@@ -28,11 +28,12 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = 'django-insecure-iqu%(1-cftd@f@0pu^(&40nt=6n=tgex6maf1x^#5_q%*tkg(b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'k-library.onrender.com',
-    '127.0.0.1',
+    '*'
+    #'k-library.onrender.com',
+    #'127.0.0.1',
     ]
     
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jobplace.apps.JobplaceConfig',
     'import_export',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -153,3 +156,16 @@ LOGOUT_REDIRECT_URL = 'main'
 SUPERUSER_NAME = env("SUPERUSER_NAME")
 SUPERUSER_EMAIL = env("SUPERUSER_EMAIL")
 SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD")
+
+
+AUTHENTICATION_BACKENDS = [
+'axes.backends.AxesBackend',
+'django.contrib.auth.backends.ModelBackend',
+]
+
+
+DEPLOY = True
+if DEPLOY:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
