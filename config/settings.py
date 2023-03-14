@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-iqu%(1-cftd@f@0pu^(&40nt=6n=tgex6maf1x^#5_q%*tkg(b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://k-library.onrender.com']
+ALLOWED_HOSTS = ['k-library.onrender.com']
     
 
 
